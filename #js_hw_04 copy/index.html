@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script src="task1.js" type="module"></script> -->
+    <!-- <script src="task2.js" type="module"></script> -->
+    <!-- <script src="task3.js" type="module"></script> -->
+    <!-- <script src="task4.js" type="module"></script> -->
+    <!-- <script src="task5.js" type="module"></script> -->
+    <!-- <script src="task6.js" type="module"></script> -->
+    <!-- <script src="task7.js" type="module"></script> -->
+    <!-- <script src="sandbox_object.js" type="module"></script> -->
+    <!-- <script src="HOF.js" type="module"></script> -->
+    <!-- <script src="sandbox object _OOP.js" type="module"></script> -->
+    <!-- <script src="sandbox_object 3.js" type="module"></script> -->
+
+    <article id="m3">
+      <h2>Module 3</h2>
+      <ol>
+        <li>
+          <p>
+            Написати ф-ю яка приймає в себе 2 параметра (обєкт замовлення і
+            обєкт з цінами товару) Ця ф-я має повернути ціну замовлення
+            <br />
+            <code>
+              const productsPrice = { apple: 20, orange: 5, cheese: 12, pork:
+              45, bread: 23 } const orderA = { apple: 5, cheese: 1, bread: 3 }
+              const orderB = { orange: 10, pork: 2, bread: 1 }</code
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            Написати ф-ю isObjectEmpty яка перевіряє чи обєкт пустий чи ні. Якщо
+            обєкт пустий то повернути true інакше false
+            <br />
+            <code>
+              isObjectEmpty({}) // true
+              <br />
+              isObjectEmpty({name: 'user, age: {21}}) // false
+            </code>
+          </p>
+        </li>
+        <li>
+          <p>Створити обєкт піци з полями і методами</p>
+          <p>В обєкті має бути такі поля і методи:</p>
+          <ol>
+            <li>поле для збереження розміру піци</li>
+            <li>поле для збереження списку добавок</li>
+            <li>поле для збереження списку соусів</li>
+            <li>
+              метод для додавання добавки (Можна додати добавку якщо вона
+              відсутня інакше показувати помилку)
+            </li>
+            <li>
+              метод для додавання соусу (Можна додати соус якщо він відсутній
+              інакше показувати, також помилка показувється якщо пробуємо
+              видалити добавку, а там ще жодної немає)
+            </li>
+            <li>
+              метод для видалення добавки (Можна видалити добавку якщо вона
+              присутня в піці інакше показувати помилку, також помилка
+              показувється якщо пробуємо видалити соус, а там ще жодного немає)
+            </li>
+            <li>
+              метод для видалення соусу (Можна видалити соус якщо він присутній
+              в піці інакше показувати помилку)
+            </li>
+            <li>
+              метод для розрахунку загальної ціни піци (розмір + добавки +
+              соуси) (ціна округлена до двох знаків після коми)
+            </li>
+            <li>
+              метод для розрахунку загальної кількості калорій піци (розмір +
+              добавки + соуси)
+            </li>
+            <li>
+              метод який показує загальну інформацію про замовлення (ціну,
+              калорії, список добавок і соусів) (Якщо піца валідна інакше
+              показувати помилку)
+            </li>
+            <li>
+              метод вибору розміру піци (Розмір піци можна змінити в будь-який
+              момент)
+            </li>
+            <li>
+              метод що показує час приготуванни в хвилинах в залежності від
+              складності піци
+            </li>
+            <li>
+              Метод валідації піци який поверне true якщо піца відповідає
+              вимогам , а саме (вибраний розмір піци, є мінімум одна добавка, і
+              мінімум один соус) інакше false (І виводить строку чого не
+              вистачає (коржа, добавки, чи соусу)) (використовувати this)
+            </li>
+          </ol>
+          <code>
+            const SIZES = {
+            <br />
+            BIG: { price: 25, cal: 100, time: 15 },
+            <br />
+            SMALL : { price : 15, cal: 50, time: 7 },
+            <br />
+            MEDIUM: { price : 15, cal: 50, time: 7 }
+            <br />
+            },
+          </code>
+          <br />
+          <code>
+            const STUFFING = {
+            <br />
+            CHEESE: { price : 6.5, cal: 45, time: 2 },
+            <br />
+            BEACON : { price : 10, cal: 70, time: 6 },
+            <br />
+            TOMATO : { price : 12.1, cal: 4, time: 5 },
+            <br />
+            CHICKEN : { price : 9.3, cal: 30, time: 5.1 }
+            <br />
+            }
+          </code>
+          <br />
+          <code>
+            const SAUCES = {
+            <br />
+            MUSTARD: { price : 3, cal: 5, time: 1 },
+            <br />
+            KETCHUP = { price : 4.2, cal: 20, time: 1.5 },
+            <br />
+            BOLOGNESE = { price : 7.5, cal: 50, time: 3 }
+            <br />
+            }
+          </code>
+          <p>Створити всі методи і перевірити чи вони працюють</p>
+        </li>
+      </ol>
+    </article>
+  </body>
+</html>
