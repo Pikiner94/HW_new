@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  <script defer src="bundle.js"></script><link href="style.css" rel="stylesheet"></head>
+  <body>
+    <h2>Lok Huy</h2>
+    <template class="frame-work">
+      <ul class="people_list">
+        {{#each people}}
+        <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </template>
+    <div class="pipla"></div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
+      integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
