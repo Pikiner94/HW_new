@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+div.card {
+  display: flex;
+  padding-top: 20px;
+  width: 200px;
+  justify-content: center;
+}
+
+div.describeInformation {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+img {
+  width: 170px;
+}
+
+p {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+div.input {
+  display: flex;
+  justify-content: center;
+}
