@@ -1,6 +1,10 @@
-import { result } from 'lodash';
 import './style.css';
 const _ = require('lodash');
+import { info } from '@pnotify/core';
+import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/core/dist/BrightTheme.css';
+import * as Confirm from '@pnotify/confirm';
+import '@pnotify/confirm/dist/PNotifyConfirm.css';
 
 class SeachCountry {
   constructor(url) {
@@ -84,6 +88,29 @@ class SeachCountry {
     });
   }
 
+  noticeApp() {
+    info({
+      text: 'Необходимо сделать запрос более специфичным',
+      modules: new Map([
+        [
+          Confirm,
+          {
+            confirm: true,
+            buttons: [
+              {
+                text: 'Ok',
+                primary: true,
+                click: (notice) => {
+                  notice.close();
+                },
+              },
+            ],
+          },
+        ],
+      ]),
+    });
+  }
+
   observeFunction() {
     fetch(this.allUrl)
       .then((response) => {
@@ -93,12 +120,12 @@ class SeachCountry {
         const result = datas.filter((data) =>
           data.name.toLowerCase().includes(this.input.value.toLowerCase())
         );
-        console.log(result);
-
         if (result.length === 1) {
           this.onlyOne(result);
         } else if ((result.length > 1) & (result.length <= 10)) {
           this.moreThanOne(result);
+        } else if (result.length > 10 && result.length < datas.length) {
+          this.noticeApp();
         }
       });
   }
