@@ -13,10 +13,11 @@ galleryItems.forEach(({ original, description, preview }) => {
   imgElem.setAttribute('class', 'gallery__image');
   imgElem.setAttribute('data-source', original);
   imgElem.setAttribute('alt', description);
+  imgElem.setAttribute('src', preview);
   liRef.append(aRef);
   aRef.append(imgElem);
-  imgElem.setAttribute('src', preview);
   ulRef.append(liRef);
+
 });
 
 const btnGallery = document.querySelectorAll('.gallery__item');

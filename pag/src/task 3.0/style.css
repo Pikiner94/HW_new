@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#pagination {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+#button:hover #buttonLeft:hover,
+#buttonRight:hover {
+  background-image: linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
+  box-shadow: 0 0 20px 0 rgb(255 88 96 / 50%);
+}
+
+#button {
+  font-family: 'Open Sans';
+  font-size: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-image: linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
+  /* box-shadow: 0 0 20px 0 rgb(255 88 96 / 50%); */
+  color: white;
+  border-radius: 4px;
+}
+
+#buttonLeft,
+#buttonRight {
+  background-image: linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
+  border-radius: 4px;
+  font-size: 20;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+}
+
+/* /////// Card */
+
+.conteiner {
+  display: flex;
+  flex-flow: row wrap;
+  /* padding-left: 2%; */
+  justify-content: center;
+}
+
+.card--list {
+  width: 50%;
+  display: flex;
+}
+
+.img {
+  height: 100%;
+  width: 300px;
+  border: 2px solid;
+}
+
+h3 {
+  border: solid 1px;
+  margin-top: 0;
+}
+
+p {
+  margin-bottom: 0;
+}
+li {
+  list-style: none;
+  display: inline;
+}
+ul {
+  padding: 0;
+}
+.dopinfo {
+  display: flex;
+  flex-flow: row wrap;
+  padding-left: 5%;
+}
+p.description {
+  margin: 0;
+  padding-left: 5%;
+}
+p.type {
+  padding-left: 5%;
+}
+h3 {
+  padding-left: 5%;
+}

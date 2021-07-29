@@ -15,10 +15,30 @@ class SeachCountry {
     this.divEnter = document.querySelector('.input');
     this.input = document.querySelector('.enter');
     this.divCardQuary = document.querySelector('.card');
+
     this.input.addEventListener(
       'input',
       _.debounce(this.observeFunction.bind(this), 1000)
     );
+  }
+
+  observeFunction() {
+    fetch(this.allUrl)
+      .then((response) => {
+        return response.json();
+      })
+      .then((datas) => {
+        const result = datas.filter((data) =>
+          data.name.toLowerCase().includes(this.input.value.toLowerCase())
+        );
+        if (result.length === 1) {
+          this.onlyOne(result);
+        } else if ((result.length > 1) & (result.length <= 10)) {
+          this.moreThanOne(result);
+        } else if (result.length > 10 && result.length < datas.length) {
+          this.noticeApp();
+        }
+      });
   }
 
   incertDataForEach(dataOfarray) {
@@ -109,25 +129,6 @@ class SeachCountry {
         ],
       ]),
     });
-  }
-
-  observeFunction() {
-    fetch(this.allUrl)
-      .then((response) => {
-        return response.json();
-      })
-      .then((datas) => {
-        const result = datas.filter((data) =>
-          data.name.toLowerCase().includes(this.input.value.toLowerCase())
-        );
-        if (result.length === 1) {
-          this.onlyOne(result);
-        } else if ((result.length > 1) & (result.length <= 10)) {
-          this.moreThanOne(result);
-        } else if (result.length > 10 && result.length < datas.length) {
-          this.noticeApp();
-        }
-      });
   }
 }
 
