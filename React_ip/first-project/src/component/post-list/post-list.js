@@ -2,25 +2,20 @@ import React from 'react';
 import PostListItem from '../post-list-item';
 import './post-list';
 
-const PostList = ({ posts, onDelete }) => {
+const PostList = ({ posts, onDelete, onToggleImportant, onToggleLiked }) => {
   const elements = posts.map((elem) => {
-    if (typeof elem === 'object' && isEmpty(elem)) {
-      const { id, ...elemOthers } = elem;
-      return (
-        <li key={id} className="list-group-item">
-          <PostListItem {...elemOthers} onDelete={() => onDelete(id)} />
-        </li>
-      );
-    }
+    const { id, ...elemOthers } = elem;
+    return (
+      <li key={id} className="list-group-item">
+        <PostListItem
+          {...elemOthers}
+          onDelete={() => onDelete(id)}
+          onToggleImportant={() => onToggleImportant(id)}
+          onToggleLiked={() => onToggleLiked(id)}
+        />
+      </li>
+    );
   });
-
-  function isEmpty(obj) {
-    for (let key in obj) {
-      return true;
-    }
-    return false;
-  }
-
   return <ul className="app-list list-group">{elements}</ul>;
 };
 

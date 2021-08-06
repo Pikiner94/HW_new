@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './search-panel.css';
 
-const SeachPanel = () => {
-  return (
-    <input
-      className="form-control search-input"
-      type="text"
-      placeholder="Поиск по записям"
-    />
-  );
-};
+export default class SeachPanel extends Component {
+  constructor(props) {
+    super(props);
+    this.onInputValue = this.onInputValue.bind(this);
+  }
 
-export default SeachPanel;
+  onInputValue(e) {
+    const term = e.target.value;
+    this.props.changeTerm(term.toLowerCase());
+  }
+
+  render() {
+    return (
+      <input
+        className="form-control search-input"
+        type="text"
+        placeholder="Поиск по записям"
+        onChange={this.onInputValue}
+      />
+    );
+  }
+}
