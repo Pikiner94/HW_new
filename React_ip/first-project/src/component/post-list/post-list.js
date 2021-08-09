@@ -1,22 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PostListItem from '../post-list-item';
 import './post-list';
 
-const PostList = ({ posts, onDelete, onToggleImportant, onToggleLiked }) => {
-  const elements = posts.map((elem) => {
-    const { id, ...elemOthers } = elem;
+export default class PostList extends Component {
+  render() {
+    const { posts, onDelete, onToggleImportant, onToggleLiked } = this.props;
     return (
-      <li key={id} className="list-group-item">
+      <ul className="app-list list-group">
         <PostListItem
-          {...elemOthers}
-          onDelete={() => onDelete(id)}
-          onToggleImportant={() => onToggleImportant(id)}
-          onToggleLiked={() => onToggleLiked(id)}
+          posts={posts}
+          onDelete={onDelete}
+          onToggleImportant={onToggleImportant}
+          onToggleLiked={onToggleLiked}
         />
-      </li>
+      </ul>
     );
-  });
-  return <ul className="app-list list-group">{elements}</ul>;
-};
-
-export default PostList;
+  }
+}

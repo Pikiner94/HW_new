@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AppHeader from '../app-header';
-import SeachPanel from '../seach-penal';
+import SeachPanel from '../seach-panel';
 import PostStatusFilter from '../post-status-filter';
 import PostList from '../post-list';
 import PostAddForm from '../post-add-form';
@@ -20,7 +20,7 @@ export default class App extends Component {
       filter: 'All',
     };
 
-    this.DeletItem = this.DeletItem.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
     this.addItem = this.addItem.bind(this);
     this.onToggleImportant = this.onToggleImportant.bind(this);
     this.onToggleLiked = this.onToggleLiked.bind(this);
@@ -56,14 +56,13 @@ export default class App extends Component {
     this.setState({ filter });
   }
 
-  updatePost(items, seachword) {
-    if (seachword.length === 0) {
-      return items;
-    } else {
+  updatePost(items, seachWord) {
+    if (seachWord) {
       return items.filter(({ label }) =>
-        label.toLowerCase().includes(seachword)
+        label.toLowerCase().includes(seachWord)
       );
     }
+    return items;
   }
 
   onToggleLiked(id) {
@@ -78,9 +77,10 @@ export default class App extends Component {
     });
   }
 
-  DeletItem(id) {
+  deleteItem(id) {
     this.setState(({ data }) => {
       const dataNew = data.filter((elem) => elem.id !== id);
+
       return {
         data: dataNew,
       };
@@ -108,6 +108,7 @@ export default class App extends Component {
     const countLike = data.filter((elem) => elem.like === true).length;
 
     const visiblePost = this.updatePost(data, term);
+
     const dataItems = visiblePost.filter((elem) => {
       if (filter === 'Like') {
         return elem.like === true;
@@ -120,12 +121,12 @@ export default class App extends Component {
         <AppHeader allPost={allPost} countLike={countLike} />
         <div className="search-panel d-flex">
           <SeachPanel changeTerm={this.changeTerm} />
-          <PostStatusFilter filterChange={this.filterChange} />
+          <PostStatusFilter filter={filter} filterChange={this.filterChange} />
         </div>
         <PostList
           allPost={allPost}
           posts={dataItems}
-          onDelete={this.DeletItem}
+          onDelete={this.deleteItem}
           onToggleImportant={this.onToggleImportant}
           onToggleLiked={this.onToggleLiked}
         />
