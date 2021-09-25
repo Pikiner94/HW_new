@@ -16,15 +16,16 @@ function PromoCode() {
       }
     }
   }
-
-  function countDigits(promoCode) {
-    ///////////////////////////////////////////////////// Разбиваю значения prompt на отдельные цифры и проверяю на кол-во символов
-    function numDigits(promoCode) {
+ 
+ function numDigits(promoCode) {
       return Math.max(Math.floor(Math.log10(Math.abs(promoCode))), 0) + 1;
     }
 
-    if (numDigits(promoCode) < 8) {
-      alert('Вы ввели менее 8 символов');
+  function countDigits(promoCode) {
+    ///////////////////////////////////////////////////// Разбиваю значения prompt на отдельные цифры и проверяю на кол-во символов
+
+    if (numDigits(promoCode) !== 8) {
+      alert('Вы ввели не 8 символов');
       AskPromo();
     } else {
       CreateArrNum(promoCode);
